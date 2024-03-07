@@ -4,6 +4,7 @@ const dotenv = require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const db = require("./models");
 const userRoute = require("./routes/user.router");
+const productRoute = require("./routes/product.router");
 
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -18,6 +19,7 @@ db.sequelize.sync({ force: true }).then(() => {
 });
 
 app.use("/api/users", userRoute);
+app.use("/api/products", productRoute);
 
 //listening to server connection
 app.listen(PORT, () => console.log(`Server is connected on ${PORT}`));

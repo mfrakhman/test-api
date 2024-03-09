@@ -1,8 +1,8 @@
 module.exports = (sequelize, DataTypes) => {
-  const Order = sequelize.define(
-    "orders",
+  const OrderItem = sequelize.define(
+    "orderitem",
     {
-      userid: {
+      orderid: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -10,12 +10,12 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      price: {
+      quantity: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
     },
     { timestamps: true }
   );
-  return Order;
+  return OrderItem;
 };

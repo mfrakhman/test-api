@@ -1,7 +1,13 @@
 const express = require("express");
 const productController = require("../controllers/product.controller");
-const { addProduct, getProduct, getProductById, updateProduct, deleteProduct } =
-  productController;
+const {
+  addProduct,
+  getProduct,
+  getProductById,
+  updateProduct,
+  deleteProduct,
+  getByCategory,
+} = productController;
 
 const router = express.Router();
 
@@ -14,4 +20,7 @@ router.get("/getbyid/:id", getProductById);
 router.put("/update/:id", updateProduct);
 
 router.delete("/delete/:id", deleteProduct);
+
+router.get("/filterbycategory/:category", getByCategory);
+
 module.exports = router;

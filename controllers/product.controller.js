@@ -43,6 +43,7 @@ const getProductById = async (req, res) => {
     console.log(error);
   }
 };
+
 const updateProduct = async (req, res) => {
   try {
     const { id } = req.params;
@@ -57,6 +58,7 @@ const updateProduct = async (req, res) => {
     console.log(error);
   }
 };
+
 const deleteProduct = async (req, res) => {
   try {
     const { id } = req.params;
@@ -69,10 +71,23 @@ const deleteProduct = async (req, res) => {
   }
 };
 
+const getByCategory = async (req, res) => {
+  try {
+    const { category } = req.params;
+    const filtered = await Product.findAll({ where: { type: category } });
+    if (filtered) {
+      return res.status(200).send(filtered);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   addProduct,
   getProduct,
   getProductById,
   updateProduct,
   deleteProduct,
+  getByCategory,
 };

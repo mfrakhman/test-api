@@ -10,9 +10,12 @@ const User = db.users;
 //hashing users password before its saved to the database with bcrypt
 const signup = async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    const { username, firstname, lastname, phone, email, password } = req.body;
     const data = {
       username,
+      firstname,
+      lastname,
+      phone,
       email,
       password: await bcrypt.hash(password, 10),
     };
@@ -83,7 +86,52 @@ const login = async (req, res) => {
   }
 };
 
+//get all users
+const allUser = async (req, res) => {
+  try {
+    const user = await User.findAll();
+    return res.status(200).send(user);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//update user
+const updateUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const [updated] = await User.update(req.body, {
+      where: { id: id },
+    });
+    if (updated) {
+      const updatedUser = await User.findOne({ where: { id: id } });
+      return res.status(200).json(updatedUser);
+    }
+    throw new Error("Post not found");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//delete user
+const deleteUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleted = await User.destroy({
+      where: { id: id },
+    });
+    if (deleted) {
+      return res.status(200).send(`user with id:${id} has been deleted`);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   signup,
   login,
+  allUser,
+  deleteUser,
+  updateUser,
 };

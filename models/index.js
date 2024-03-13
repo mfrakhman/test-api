@@ -1,8 +1,15 @@
 //importing modules
 const { Sequelize, DataTypes } = require("sequelize");
 
+//local db
+// const sequelize = new Sequelize(
+//   `postgres://postgres:postgres@localhost:5432/db_platinumtest`,
+//   { dialect: "postgres" }
+// );
+
+//vercel postgres
 const sequelize = new Sequelize(
-  `postgres://postgres:postgres@localhost:5432/db_platinumtest`,
+  `postgres://default:pGCMLoJW1rq8@ep-shiny-forest-a1qk5xyw-pooler.ap-southeast-1.aws.neon.tech:5432/verceldb?sslmode=require`,
   { dialect: "postgres" }
 );
 

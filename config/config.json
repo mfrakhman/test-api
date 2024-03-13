@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "postgres",
-    "database": "db_platinumtest",
-    "host": "127.0.0.1",
+    "username": "default",
+    "password": "pGCMLoJW1rq8",
+    "database": "verceldb",
+    "host": "ep-shiny-forest-a1qk5xyw-pooler.ap-southeast-1.aws.neon.tech",
     "dialect": "postgres"
   },
   "test": {
-    "username": "postgres",
-    "password": "postgres",
-    "database": "db_platinumtest",
-    "host": "127.0.0.1",
+    "username": "default",
+    "password": "pGCMLoJW1rq8",
+    "database": "verceldb",
+    "host": "ep-shiny-forest-a1qk5xyw-pooler.ap-southeast-1.aws.neon.tech",
     "dialect": "postgres"
   },
   "production": {
-    "username": "postgres",
-    "password": "postgres",
-    "database": "db_platinumtest",
-    "host": "127.0.0.1",
+    "username": "default",
+    "password": "pGCMLoJW1rq8",
+    "database": "verceldb",
+    "host": "ep-shiny-forest-a1qk5xyw-pooler.ap-southeast-1.aws.neon.tech",
     "dialect": "postgres"
   }
 }

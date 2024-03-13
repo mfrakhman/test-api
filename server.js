@@ -17,6 +17,9 @@ db.sequelize.sync({ force: true }).then(() => {
   console.log("db has been re sync");
 });
 
+app.use("/", (req, res) => {
+  res.send("hello");
+});
 app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
 

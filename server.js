@@ -6,7 +6,7 @@ const db = require("./models");
 const userRoute = require("./routes/user.router");
 const productRoute = require("./routes/product.router");
 
-const PORT = process.env.PORT || 5000;
+// const PORT = process.env.PORT || 5000;
 const app = express();
 
 app.use(express.json());
@@ -20,4 +20,6 @@ db.sequelize.sync({ force: true }).then(() => {
 app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
 
-app.listen(PORT, () => console.log(`Server is connected on ${PORT}`));
+app.listen(process.env.PORT, () =>
+  console.log(`Server is connected on ${PORT}`)
+);
